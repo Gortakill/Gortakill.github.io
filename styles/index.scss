@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "initialStyle.scss";
+
+%display-flex {
+    display: flex;
+    flex-direction: column; 
+}
+
+@mixin statusButton($active, $color){
+    background-color: $active;
+    border: 1px solid $color;
+    color: $color;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+}
+
+$active-color: #a6e7d8;
+$inactive-color: #ffc5c5;
+$side-color: #FFFFFF;
+$table-color: #bec0c8;
+$main-color: #f9fbff;
+$side-text-color: #9197b3;
+$hover-color: #5932ea;
+
+.side-menu{
+    @extend %display-flex;
+    width: 20%;
+    height: 100%;
+    background-color: $side-color;
+    .title{
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        margin-left: 18px;
+        img{
+            margin-right: 8px;
+        }
+    }
+    .toggle-menu {
+        display: none;
+    }
+    nav{
+        @extend %display-flex;
+        justify-content: space-between;
+        height: 100%;
+        .navigation{
+            @extend %display-flex;
+            height: 40%;
+            justify-content: space-around;
+            .nav-item{
+                display: flex;
+                align-items: center;
+                color: $side-text-color;
+                padding: 10px;
+                margin-left: 18px;
+                width: 80%;
+                img{
+                    margin-right: 10px;
+                }
+                cursor: pointer;
+                &:hover{
+                    img{
+                        filter: invert(100%) brightness(1000%);
+                    }
+                    border-radius: 10px;
+                    background-color: $hover-color;
+                    color: $side-color;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+    .user{
+        font-size: small;
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 18px;
+        div{
+            margin-left: 8px;
+            p{
+                color: $side-text-color;
+            }
+        }
+    }
+}
+.product{
+    @extend %display-flex;
+    background-color: #fafbff;
+    width: 100%;
+    align-items: center;
+    .title-div{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 90%;
+        margin-bottom: none;
+        h2{
+            font-weight: 400;
+        }
+    }
+    .main-menu{
+        width: 90%;
+        height: fit-content;
+        background-color: $side-color;
+        border-radius: 50px;
+        .head-menu{
+            display: flex;
+            h1{
+                margin-top: 2rem;
+                margin-left: 2rem;
+                font-size: 22px;
+            }
+            p{
+                color: #6dd8be;
+                margin-left: 2rem;
+            }
+            form{
+                margin-top: 3rem;
+                margin-left: auto;
+                margin-right: 2rem;
+                display: flex;
+                align-items: center;
+                button{
+                    border: none;
+                    background-color: $main-color;
+                    padding: 5px 0 5px 0;
+                }
+                input{
+                    border: none;
+                    background-color: $main-color;
+                    padding: 10px 8px 10px 5px;
+                }
+            }
+        }
+        .mobile-menu{
+            display: none;
+        }
+        table{
+            margin-top: 3rem;
+            width: 100%;
+            thead{
+                tr{
+                    display: flex;
+                    border-bottom: 1px solid $table-color;
+                    th{
+                        width: 20%;
+                        font-size: 14px;
+                        color: $table-color;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    display: flex;
+                    justify-content: space-around;
+                    border-bottom: 1px solid $table-color;
+                    td{
+                        padding: 20px 0 20px 0;
+                        display: flex;
+                        justify-content: center;
+                        width: 15%;
+                        .Active{
+                            @include statusButton($active-color, #34c0a0);
+                        }
+                        .Inactive{
+                            @include statusButton($inactive-color, #e73434);
+                        }
+                    }
+                }
+            }
+        }
+        .pagination{
+            display: flex;
+            .info-entries{
+                font-size: 14px;
+                color: $table-color;
+                margin-top: 1rem;
+                margin-left: 2rem;
+            }
+            div{
+                margin-top: 1rem;
+                margin-right: 2rem;
+                margin-left: auto;
+                display: flex;
+                button{
+                    background-color: #f5f5f5;
+                    padding: 5px 5px;
+                    border: none;
+                    margin: 0 5px 0 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: $hover-color;
+                        color: $side-color;
+                        transition: 0.3s ease-in-out; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1100px){
+    body {
+        flex-direction: column;
+        width: 100%;
+    }
+    .side-menu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        background-color: $side-color;
+        .toggle-menu {
+            display: flex;            
+            margin-right: 18px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .navigation-close{
+            position: absolute;
+            z-index: 0;
+            transform: translateY(-100%);
+            transition: 1s;
+        }
+        .navigation-open{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: $side-color;
+            transition: 1s;
+            transform: translateY(100px);
+            height: fit-content;
+        }
+    }
+}
+
+@media(max-width: 850px){
+    .product{
+        .main-menu{
+            .mobile-menu{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 3rem;
+                .mobile-item {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #fafbff;
+                    padding: 10px;
+                    margin-bottom: 1rem;
+                    border-radius: 10px;
+                    width: 90%;
+                    .user-info-item{
+                        display: flex;
+                        padding: 10px;
+                        h3{
+                            font-size: 14px;
+                            color: $table-color;
+                        }
+                        p{
+                            margin-left: 10px;
+                        }
+                        .Active{
+                            @include statusButton($active-color, #34c0a0);
+                        }
+                        .Inactive{
+                            @include statusButton($inactive-color, #e73434);
+                        }
+                    }
+                }
+            }
+            .table-menu{
+                display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 500px){
+    .product{
+        .main-menu{
+            .head-menu{
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    margin-left: 0;
+                }
+                p{
+                    margin-left: 0;
+                }
+                form{
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+            .pagination{
+                flex-direction: column;
+                align-items: center;
+                .info-entries{
+                    margin-left: 0;
+                }
+                div{
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

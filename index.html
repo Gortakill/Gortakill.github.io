@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <aside class="side-menu">
+        <h1 class="title"><img src="assets/title.svg" alt="vector">Dashboard</h1>
+        <button class="toggle-menu" id="toggleMenu"><img src="assets/menu.svg" alt="menu"></button>
+        <nav id="navigation" class="navigation-close">
+            <ul class="navigation">
+                <li class="nav-item"><img src="assets/dashboard.svg" alt="dashboard">Dashboard</li>
+                <li class="nav-item"><img src="assets/product.svg" alt="product">Product</li>
+                <li class="nav-item"><img src="assets/customer.svg" alt="customer">Customer</li>
+                <li class="nav-item"><img src="assets/income.svg" alt="income">Income</li>
+                <li class="nav-item"><img src="assets/promote.svg" alt="promote">Promote</li>
+                <li class="nav-item"><img src="assets/help.svg" alt="help">Help</li>
+            </ul>
+            <div class="user">
+                <img src="assets/user.svg" alt="user">
+                <div>
+                    <h4>Evano</h4>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+        </nav>
+    </aside>
+    <main class="product">
+        <div class="title-div">
+            <h2>Hello Evano👋</h2>
+        </div>
+        <section class="main-menu" id="mainMenu">
+            <div class="head-menu">
+                <div>
+                    <h1>All Customer</h1>
+                    <p>Active members</p>
+                </div>
+
+                <form action="">
+                    <button><img src="assets/search.svg" alt="search"></button>
+                    <input type="text" placeholder="Search"></input>
+                </form>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+
+            </div>
+            <table class="table-menu">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Company</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body" id="tableBody">
+
+                </tbody>
+            </table>
+            <div class="pagination">
+                <p class="info-entries">Showing data 1 to 8 of  256K entries</p>
+                <div>
+                    <button><</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <p>...</p>
+                    <button>40</button>
+                    <button>></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
